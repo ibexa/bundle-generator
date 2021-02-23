@@ -1,15 +1,15 @@
 {
   "name": "ibexa/bundle-generator",
-  "license": "GPL-2.0-only",
+  "license": "proprietary",
   "description": "Symfony Bundle generator for Ibexa DXP based projects",
-  "keywords": [
-    "ibexa", "symfony"
-  ],
   "type": "project",
+  "keywords": [
+    "ibexa-dxp"
+  ],
   "require": {
     "php": "^7.3",
-    "symfony/console": "^4.3",
-    "symfony/filesystem": "^4.3"
+    "symfony/console": "^5.2",
+    "symfony/filesystem": "^5.2"
   },
   "require-dev": {
     "composer/composer": "^1.0@dev",
@@ -32,7 +32,16 @@
     }
   },
   "scripts": {
-    "fix-cs": "@php ./vendor/bin/php-cs-fixer fix -v --show-progress=estimating"
+    "fix-cs": "php-cs-fixer fix -v --show-progress=estimating",
+    "check-cs": "php-cs-fixer fix --dry-run -v --show-progress=estimating",
+    "test": "phpunit -c phpunit.xml.dist",
+    "phpstan": "phpstan analyse -c phpstan.neon"
+  },
+  "scripts-descriptions": {
+    "fix-cs": "Automatically fixes code style in all files",
+    "check-cs": "Run code style checker for all files",
+    "test": "Run automatic tests",
+    "phpstan": "Run static code analysis"
   },
   "extra": {
     "branch-alias": {
