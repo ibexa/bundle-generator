@@ -15,6 +15,9 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 final class __VENDOR_NAMESPACE__Platform__BUNDLE_NAME__Extension extends Extension
 {
+    /**
+     * @param array<string, mixed> $configs
+     */
     public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new YamlFileLoader(
