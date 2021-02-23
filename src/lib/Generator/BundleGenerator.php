@@ -48,6 +48,9 @@ final class BundleGenerator
         }
     }
 
+    /**
+     * @return iterator<SplFileInfo>
+     */
     private function createSkeletonIterator(string $targetDir): Iterator
     {
         $excludedPaths = [
@@ -115,11 +118,15 @@ final class BundleGenerator
         return null;
     }
 
+    /**
+     * @return string[]
+     */
     public static function getAvailableSkeletons(): array
     {
         $skeletons = [];
 
         $iterator = new FilesystemIterator(self::SKELETON_DIRECTORY);
+        /** @var \SplFileInfo $fileInfo */
         foreach ($iterator as $fileInfo) {
             if (!$fileInfo->isDir()) {
                 continue;

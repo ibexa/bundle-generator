@@ -21,8 +21,8 @@ final class ScriptHandler
 
         $config = new BundleGeneratorConfiguration();
         $config->setSkeletonName(self::askForSkeletonName($io));
-        $config->setPackageName(self::askForPackageName($io, $config));
-        $config->setVendorName(self::askForVendorName($io, $config));
+        $config->setPackageName(self::askForPackageName($io));
+        $config->setVendorName(self::askForVendorName($io));
         $config->setVendorNamespace(self::askForVendorNamespace($io, $config));
         $config->setBundleName(self::askForBundleName($io, $config));
         $config->setTargetDir(realpath('.'));
@@ -31,7 +31,7 @@ final class ScriptHandler
         $generator->generate($config);
     }
 
-    private static function askForPackageName(IOInterface $io, BundleGeneratorConfiguration $config): ?string
+    private static function askForPackageName(IOInterface $io): string
     {
         $defaultPackageName = BundleGenerator::getDefaultPackageName();
 
@@ -41,7 +41,7 @@ final class ScriptHandler
         );
     }
 
-    private static function askForVendorName(IOInterface $io, BundleGeneratorConfiguration $config): ?string
+    private static function askForVendorName(IOInterface $io): string
     {
         $defaultVendorName = BundleGenerator::getDefaultVendorName();
 
@@ -51,7 +51,7 @@ final class ScriptHandler
         );
     }
 
-    private static function askForVendorNamespace(IOInterface $io, BundleGeneratorConfiguration $config): ?string
+    private static function askForVendorNamespace(IOInterface $io, BundleGeneratorConfiguration $config): string
     {
         $defaultVendorNamespace = BundleGenerator::getDefaultVendorNamespace($config->getVendorName());
 
@@ -61,7 +61,7 @@ final class ScriptHandler
         );
     }
 
-    private static function askForBundleName(IOInterface $io, BundleGeneratorConfiguration $config): ?string
+    private static function askForBundleName(IOInterface $io, BundleGeneratorConfiguration $config): string
     {
         $defaultBundleName = BundleGenerator::getDefaultBundleName($config->getPackageName());
 
@@ -71,7 +71,7 @@ final class ScriptHandler
         );
     }
 
-    private static function askForSkeletonName(IOInterface $io): ?string
+    private static function askForSkeletonName(IOInterface $io): string
     {
         $skeletons = BundleGenerator::getAvailableSkeletons();
         if (count($skeletons) === 1) {

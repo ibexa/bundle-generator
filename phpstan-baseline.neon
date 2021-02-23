@@ -1,0 +1,72 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#1 \\$packageVendor of static method Ibexa\\\\Platform\\\\BundleGenerator\\\\Generator\\\\BundleGenerator\\:\\:getDefaultVendorNamespace\\(\\) expects string\\|null, array\\<string\\>\\|bool\\|string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Command/GenerateBundleCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$packageName of static method Ibexa\\\\Platform\\\\BundleGenerator\\\\Generator\\\\BundleGenerator\\:\\:getDefaultBundleName\\(\\) expects string\\|null, array\\<string\\>\\|string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Command/GenerateBundleCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$targetDir of method Ibexa\\\\Platform\\\\BundleGenerator\\\\Generator\\\\BundleGeneratorConfiguration\\:\\:setTargetDir\\(\\) expects string\\|null, array\\<string\\>\\|string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Command/GenerateBundleCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$packageName of method Ibexa\\\\Platform\\\\BundleGenerator\\\\Generator\\\\BundleGeneratorConfiguration\\:\\:setPackageName\\(\\) expects string\\|null, array\\<string\\>\\|string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Command/GenerateBundleCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$skeletonName of method Ibexa\\\\Platform\\\\BundleGenerator\\\\Generator\\\\BundleGeneratorConfiguration\\:\\:setSkeletonName\\(\\) expects string\\|null, array\\<string\\>\\|bool\\|string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Command/GenerateBundleCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$vendorName of method Ibexa\\\\Platform\\\\BundleGenerator\\\\Generator\\\\BundleGeneratorConfiguration\\:\\:setVendorName\\(\\) expects string\\|null, array\\<string\\>\\|bool\\|string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Command/GenerateBundleCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$vendorNamespace of method Ibexa\\\\Platform\\\\BundleGenerator\\\\Generator\\\\BundleGeneratorConfiguration\\:\\:setVendorNamespace\\(\\) expects string\\|null, array\\<string\\>\\|bool\\|string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Command/GenerateBundleCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$bundleName of method Ibexa\\\\Platform\\\\BundleGenerator\\\\Generator\\\\BundleGeneratorConfiguration\\:\\:setBundleName\\(\\) expects string\\|null, array\\<string\\>\\|bool\\|string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Command/GenerateBundleCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$targetDir of method Ibexa\\\\Platform\\\\BundleGenerator\\\\Generator\\\\BundleGeneratorConfiguration\\:\\:setTargetDir\\(\\) expects string\\|null, string\\|false given\\.$#"
+			count: 1
+			path: src/lib/Composer/ScriptHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\Platform\\\\BundleGenerator\\\\Composer\\\\ScriptHandler\\:\\:askForSkeletonName\\(\\) should return string but returns array\\|int\\|string\\.$#"
+			count: 1
+			path: src/lib/Composer/ScriptHandler.php
+
+		-
+			message: "#^Parameter \\#2 \\$targetDir of method Symfony\\\\Component\\\\Filesystem\\\\Filesystem\\:\\:mirror\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Generator/BundleGenerator.php
+
+		-
+			message: "#^Parameter \\#1 \\$targetDir of method Ibexa\\\\Platform\\\\BundleGenerator\\\\Generator\\\\BundleGenerator\\:\\:createSkeletonIterator\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Generator/BundleGenerator.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of function strtr expects string, string\\|false given\\.$#"
+			count: 1
+			path: src/lib/Generator/BundleGenerator.php
+
+		-
+			message: "#^Parameter \\#1 \\$path of function basename expects string, string\\|false given\\.$#"
+			count: 1
+			path: src/lib/Generator/BundleGenerator.php
+

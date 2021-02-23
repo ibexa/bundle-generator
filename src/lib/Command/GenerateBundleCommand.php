@@ -119,7 +119,7 @@ final class GenerateBundleCommand extends Command
         }
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $config = new BundleGeneratorConfiguration();
         $config->setTargetDir($input->getArgument('target-dir'));
@@ -131,5 +131,7 @@ final class GenerateBundleCommand extends Command
 
         $generator = new BundleGenerator();
         $generator->generate($config);
+
+        return self::SUCCESS;
     }
 }

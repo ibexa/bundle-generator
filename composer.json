@@ -13,7 +13,8 @@
   },
   "require-dev": {
     "composer/composer": "^1.0@dev",
-    "phpunit/phpunit": "^8.2",
+    "phpunit/phpunit": "^9.0",
+    "phpstan/phpstan": "^0.12.75",
     "ezsystems/ezplatform-code-style": "^0.4.0"
   },
   "bin": ["bin/ibexa-bundle-generator"],
