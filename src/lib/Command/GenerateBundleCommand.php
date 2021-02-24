@@ -60,9 +60,8 @@ final class GenerateBundleCommand extends Command
         $this->addOption(
             'skeleton-name',
             null,
-            InputArgument::OPTIONAL,
-            'Skeleton name',
-            null
+            InputOption::VALUE_OPTIONAL,
+            'Skeleton name'
         );
     }
 

@@ -63,7 +63,7 @@ final class BundleGenerator
         $iterator = new RecursiveCallbackFilterIterator(
             new RecursiveDirectoryIterator($targetDir, $flags),
             static function (SplFileInfo $file) use ($excludedPaths): bool {
-                return !in_array($file->getPathname(), $excludedPaths);
+                return !in_array($file->getPathname(), $excludedPaths, true);
             }
         );
 
@@ -106,11 +106,7 @@ final class BundleGenerator
     public static function getDefaultBundleName(?string $packageName): ?string
     {
         if ($packageName !== null) {
-            return implode('', array_map(static function (string $chunk) {
-                if (strtolower($chunk) === 'ezplatform') {
-                    return 'EzPlatform';
-                }
-
+            return implode('', array_map(static function (string $chunk): string {
                 return ucfirst($chunk);
             }, explode('-', $packageName)));
         }
