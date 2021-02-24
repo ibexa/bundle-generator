@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+<?php
+
+foreach ([__DIR__ . '/../../../autoload.php', __DIR__ . '/../../vendor/autoload.php', __DIR__ . '/../vendor/autoload.php'] as $file) {
+    if (file_exists($file)) {
+        require $file;
+        break;
+    }
+}
+
+use Ibexa\Platform\BundleGenerator\Command\GenerateBundleCommand;
+use Symfony\Component\Console\Application;
+
+$application = new Application();
+$application->add(new GenerateBundleCommand());
+$application->setDefaultCommand('generate-bundle', true);
+$application->run();

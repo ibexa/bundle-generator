@@ -1,0 +1,57 @@
+{
+  "name": "__VENDOR_NAME__/__PACKAGE_NAME__",
+  "license": "GPL-2.0-only",
+  "type": "ibexa-bundle",
+  "keywords": [
+    "ibexa-dxp"
+  ],
+  "require": {
+    "php": "^7.3",
+    "ezsystems/ezplatform-kernel": "^1.3@dev",
+    "symfony/config": "^5.2",
+    "symfony/dependency-injection": "^5.2",
+    "symfony/event-dispatcher": "^5.2",
+    "symfony/event-dispatcher-contracts": "^2.2",
+    "symfony/http-foundation": "^5.2",
+    "symfony/http-kernel": "^5.2",
+    "symfony/yaml": "^5.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.0",
+    "ezsystems/ezplatform-code-style": "^0.3",
+    "friendsofphp/php-cs-fixer": "^2.16",
+    "phpstan/phpstan": "^0.12.75",
+    "phpstan/phpstan-phpunit": "^0.12.17"
+  },
+  "autoload": {
+    "psr-4": {
+      "__VENDOR_NAMESPACE__\\Platform\\Bundle\\__BUNDLE_NAME__\\": "src/bundle/",
+      "__VENDOR_NAMESPACE__\\Platform\\Contracts\\__BUNDLE_NAME__\\": "src/contracts/",
+      "__VENDOR_NAMESPACE__\\Platform\\__BUNDLE_NAME__\\": "src/lib/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "__VENDOR_NAMESPACE__\\Platform\\Tests\\Bundle\\__BUNDLE_NAME__\\": "tests/bundle/",
+      "__VENDOR_NAMESPACE__\\Platform\\Tests\\Integration\\__BUNDLE_NAME__\\": "tests/integration/",
+      "__VENDOR_NAMESPACE__\\Platform\\Tests\\__BUNDLE_NAME__\\": "tests/lib/"
+    }
+  },
+  "scripts": {
+    "fix-cs": "php-cs-fixer fix -v --show-progress=estimating",
+    "check-cs": "php-cs-fixer fix --dry-run -v --diff --show-progress=estimating",
+    "test": "phpunit -c phpunit.xml.dist",
+    "phpstan": "phpstan analyse -c phpstan.neon"
+  },
+  "scripts-descriptions": {
+    "fix-cs": "Automatically fixes code style in all files",
+    "check-cs": "Run code style checker for all files",
+    "test": "Run automatic tests",
+    "phpstan": "Run static code analysis"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-main": "1.0.x-dev"
+    }
+  }
+}

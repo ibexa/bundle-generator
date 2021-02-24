@@ -1,0 +1,52 @@
+{
+  "name": "ibexa/bundle-generator",
+  "license": "proprietary",
+  "description": "Symfony Bundle generator for Ibexa DXP based projects",
+  "type": "project",
+  "keywords": [
+    "ibexa-dxp"
+  ],
+  "require": {
+    "php": "^7.3",
+    "symfony/console": "^5.2",
+    "symfony/filesystem": "^5.2"
+  },
+  "require-dev": {
+    "composer/composer": "^1.0@dev",
+    "phpunit/phpunit": "^9.0",
+    "phpstan/phpstan": "^0.12.75",
+    "ezsystems/ezplatform-code-style": "^0.4.0"
+  },
+  "bin": ["bin/ibexa-bundle-generator"],
+  "autoload": {
+    "psr-4": {
+      "Ibexa\\Platform\\Bundle\\BundleGenerator\\": "src/bundle",
+      "Ibexa\\Platform\\Contracts\\BundleGenerator\\": "src/contracts",
+      "Ibexa\\Platform\\BundleGenerator\\": "src/lib"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Ibexa\\Platform\\Tests\\Bundle\\BundleGenerator\\": "tests/bundle",
+      "Ibexa\\Platform\\Tests\\Integration\\BundleGenerator\\": "tests/integration",
+      "Ibexa\\Platform\\Tests\\BundleGenerator\\": "tests/lib"
+    }
+  },
+  "scripts": {
+    "fix-cs": "php-cs-fixer fix -v --diff --show-progress=estimating",
+    "check-cs": "php-cs-fixer fix --dry-run -v --show-progress=estimating",
+    "test": "phpunit -c phpunit.xml.dist",
+    "phpstan": "phpstan analyse -c phpstan.neon"
+  },
+  "scripts-descriptions": {
+    "fix-cs": "Automatically fixes code style in all files",
+    "check-cs": "Run code style checker for all files",
+    "test": "Run automatic tests",
+    "phpstan": "Run static code analysis"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-main": "1.0.x-dev"
+    }
+  }
+}
