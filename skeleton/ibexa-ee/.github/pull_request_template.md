@@ -1,6 +1,6 @@
 | Question                                  | Answer
 | ----------------------------------------- | ------------------
-| **JIRA issue**                            | EZEE-XXXXX
+| **JIRA issue**                            | IBX-XXXXX
 | **Type**                                  | feature/bug/improvement
 | **Target Ibexa DXP version**              | `v4.x` - please update `x` accordingly
 | **BC breaks**                             | yes/no
