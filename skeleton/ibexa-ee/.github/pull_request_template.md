@@ -4,7 +4,6 @@
 | **Type**                                  | feature/bug/improvement
 | **Target Ibexa DXP version**              | `v4.x` - please update `x` accordingly
 | **BC breaks**                             | yes/no
-| **Doc needed**                            | yes/no
 
 <!-- Replace this comment with Pull Request description -->
 
