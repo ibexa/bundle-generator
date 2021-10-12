@@ -1,5 +1,9 @@
 # __PACKAGE_NAME__
 
+This package is part of [Ibexa DXP](ibexa.co).
+
+To use this package, [install Ibexa DXP](https://doc.ibexa.co/en/latest/install/).
+
 <!-- This package contains the ... functionality for [Ibexa DXP](ibexa.co). -->
 
 ## COPYRIGHT
