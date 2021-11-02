@@ -28,16 +28,16 @@
   },
   "autoload": {
     "psr-4": {
-      "__VENDOR_NAMESPACE__\\Platform\\Bundle\\__BUNDLE_NAME__\\": "src/bundle/",
-      "__VENDOR_NAMESPACE__\\Platform\\Contracts\\__BUNDLE_NAME__\\": "src/contracts/",
-      "__VENDOR_NAMESPACE__\\Platform\\__BUNDLE_NAME__\\": "src/lib/"
+      "__VENDOR_NAMESPACE__\\Bundle\\__BUNDLE_NAME__\\": "src/bundle/",
+      "__VENDOR_NAMESPACE__\\Contracts\\__BUNDLE_NAME__\\": "src/contracts/",
+      "__VENDOR_NAMESPACE__\\__BUNDLE_NAME__\\": "src/lib/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "__VENDOR_NAMESPACE__\\Platform\\Tests\\Bundle\\__BUNDLE_NAME__\\": "tests/bundle/",
-      "__VENDOR_NAMESPACE__\\Platform\\Tests\\Integration\\__BUNDLE_NAME__\\": "tests/integration/",
-      "__VENDOR_NAMESPACE__\\Platform\\Tests\\__BUNDLE_NAME__\\": "tests/lib/"
+      "__VENDOR_NAMESPACE__\\Tests\\Bundle\\__BUNDLE_NAME__\\": "tests/bundle/",
+      "__VENDOR_NAMESPACE__\\Tests\\Integration\\__BUNDLE_NAME__\\": "tests/integration/",
+      "__VENDOR_NAMESPACE__\\Tests\\__BUNDLE_NAME__\\": "tests/lib/"
     }
   },
   "scripts": {

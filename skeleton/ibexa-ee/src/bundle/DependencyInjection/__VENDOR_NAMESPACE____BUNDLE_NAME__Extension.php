@@ -6,14 +6,14 @@
  */
 declare(strict_types=1);
 
-namespace __VENDOR_NAMESPACE__\Platform\Bundle\__BUNDLE_NAME__\DependencyInjection;
+namespace __VENDOR_NAMESPACE__\Bundle\__BUNDLE_NAME__\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-final class __VENDOR_NAMESPACE__Platform__BUNDLE_NAME__Extension extends Extension
+final class __VENDOR_NAMESPACE____BUNDLE_NAME__Extension extends Extension
 {
     /**
      * @param array<string, mixed> $configs
