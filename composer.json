@@ -20,16 +20,16 @@
   "bin": ["bin/ibexa-bundle-generator"],
   "autoload": {
     "psr-4": {
-      "Ibexa\\Platform\\Bundle\\BundleGenerator\\": "src/bundle",
-      "Ibexa\\Platform\\Contracts\\BundleGenerator\\": "src/contracts",
-      "Ibexa\\Platform\\BundleGenerator\\": "src/lib"
+      "Ibexa\\Bundle\\BundleGenerator\\": "src/bundle",
+      "Ibexa\\Contracts\\BundleGenerator\\": "src/contracts",
+      "Ibexa\\BundleGenerator\\": "src/lib"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Ibexa\\Platform\\Tests\\Bundle\\BundleGenerator\\": "tests/bundle",
-      "Ibexa\\Platform\\Tests\\Integration\\BundleGenerator\\": "tests/integration",
-      "Ibexa\\Platform\\Tests\\BundleGenerator\\": "tests/lib"
+      "Ibexa\\Tests\\Bundle\\BundleGenerator\\": "tests/bundle",
+      "Ibexa\\Tests\\Integration\\BundleGenerator\\": "tests/integration",
+      "Ibexa\\Tests\\BundleGenerator\\": "tests/lib"
     }
   },
   "scripts": {

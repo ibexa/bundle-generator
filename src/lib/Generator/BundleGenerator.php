@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace Ibexa\Platform\BundleGenerator\Generator;
+namespace Ibexa\BundleGenerator\Generator;
 
 use FilesystemIterator;
 use Iterator;

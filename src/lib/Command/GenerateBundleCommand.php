@@ -6,10 +6,10 @@
  */
 declare(strict_types=1);
 
-namespace Ibexa\Platform\BundleGenerator\Command;
+namespace Ibexa\BundleGenerator\Command;
 
-use Ibexa\Platform\BundleGenerator\Generator\BundleGenerator;
-use Ibexa\Platform\BundleGenerator\Generator\BundleGeneratorConfiguration;
+use Ibexa\BundleGenerator\Generator\BundleGenerator;
+use Ibexa\BundleGenerator\Generator\BundleGeneratorConfiguration;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
