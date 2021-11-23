@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-final class __VENDOR_NAMESPACE__Platform__BUNDLE_NAME__Extension extends Extension
+final class __VENDOR_NAMESPACE____BUNDLE_NAME__Extension extends Extension
 {
     /**
      * @param array<string, mixed> $configs

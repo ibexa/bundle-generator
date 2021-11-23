@@ -7,34 +7,35 @@
     "ibexa-dxp"
   ],
   "require": {
-    "php": "^7.3",
-    "symfony/console": "^5.2",
-    "symfony/filesystem": "^5.2"
+    "php": "^7.4",
+    "symfony/console": "^5.3",
+    "symfony/filesystem": "^5.3"
   },
   "require-dev": {
-    "composer/composer": "^1.10.22",
+    "composer/composer": "^2.1",
     "phpunit/phpunit": "^9.0",
     "phpstan/phpstan": "^0.12.75",
-    "ezsystems/ezplatform-code-style": "^0.4.0"
+    "ezsystems/ezplatform-code-style": "^2.0",
+    "friendsofphp/php-cs-fixer": "^3.0"
   },
   "bin": ["bin/ibexa-bundle-generator"],
   "autoload": {
     "psr-4": {
-      "Ibexa\\Platform\\Bundle\\BundleGenerator\\": "src/bundle",
-      "Ibexa\\Platform\\Contracts\\BundleGenerator\\": "src/contracts",
-      "Ibexa\\Platform\\BundleGenerator\\": "src/lib"
+      "Ibexa\\Bundle\\BundleGenerator\\": "src/bundle",
+      "Ibexa\\Contracts\\BundleGenerator\\": "src/contracts",
+      "Ibexa\\BundleGenerator\\": "src/lib"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Ibexa\\Platform\\Tests\\Bundle\\BundleGenerator\\": "tests/bundle",
-      "Ibexa\\Platform\\Tests\\Integration\\BundleGenerator\\": "tests/integration",
-      "Ibexa\\Platform\\Tests\\BundleGenerator\\": "tests/lib"
+      "Ibexa\\Tests\\Bundle\\BundleGenerator\\": "tests/bundle",
+      "Ibexa\\Tests\\Integration\\BundleGenerator\\": "tests/integration",
+      "Ibexa\\Tests\\BundleGenerator\\": "tests/lib"
     }
   },
   "scripts": {
-    "fix-cs": "php-cs-fixer fix -v --diff --show-progress=estimating",
-    "check-cs": "php-cs-fixer fix --dry-run -v --show-progress=estimating",
+    "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php --show-progress=dots",
+    "check-cs": "@fix-cs --dry-run",
     "test": "phpunit -c phpunit.xml.dist",
     "phpstan": "phpstan analyse -c phpstan.neon"
   },

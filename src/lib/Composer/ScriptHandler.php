@@ -6,12 +6,12 @@
  */
 declare(strict_types=1);
 
-namespace Ibexa\Platform\BundleGenerator\Composer;
+namespace Ibexa\BundleGenerator\Composer;
 
 use Composer\IO\IOInterface;
 use Composer\Script\Event;
-use Ibexa\Platform\BundleGenerator\Generator\BundleGenerator;
-use Ibexa\Platform\BundleGenerator\Generator\BundleGeneratorConfiguration;
+use Ibexa\BundleGenerator\Generator\BundleGenerator;
+use Ibexa\BundleGenerator\Generator\BundleGeneratorConfiguration;
 
 final class ScriptHandler
 {

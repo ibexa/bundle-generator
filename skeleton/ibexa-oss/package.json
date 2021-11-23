@@ -1,0 +1,13 @@
+{
+  "name": "__PACKAGE_NAME__",
+  "repository": "git@github.com:__VENDOR_NAME__/__PACKAGE_NAME__.git",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "eslint-config-ibexa": "https://github.com/ibexa/eslint-config-ibexa.git"
+  },
+  "scripts": {
+    "test": "yarn eslint-test",
+    "eslint-test": "eslint \"./src/bundle/**/*.js\""
+  }
+}

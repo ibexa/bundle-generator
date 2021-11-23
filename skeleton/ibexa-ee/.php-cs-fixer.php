@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-return \EzSystems\EzPlatformCodeStyle\PhpCsFixer\EzPlatformInternalConfigFactory::build()->setFinder(
+return \Ibexa\CodeStyle\PhpCsFixer\InternalConfigFactory::build()->setFinder(
     PhpCsFixer\Finder::create()
         ->in(__DIR__ . '/src')
         ->in(__DIR__ . '/tests')
