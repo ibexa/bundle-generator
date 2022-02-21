@@ -52,7 +52,7 @@ Options:
 
 ## COPYRIGHT
 
-Copyright (C) 1999-2021 Ibexa AS (formerly eZ Systems AS). All rights reserved.
+Copyright (C) 1999-2022 Ibexa AS (formerly eZ Systems AS). All rights reserved.
 
 ## LICENSE
 
