@@ -1,13 +1,13 @@
 {
   "name": "__VENDOR_NAME__/__PACKAGE_NAME__",
-  "license": "GPL-2.0-only",
+  "license": "(GPL-2.0-only or proprietary)",
   "type": "ibexa-bundle",
   "keywords": [
     "ibexa-dxp"
   ],
   "require": {
-    "php": "^7.4",
-    "ezsystems/ezplatform-kernel": "^1.3@dev",
+    "php": "^7.4 || ^8.0",
+    "ibexa/core": "^1.3@dev",
     "symfony/config": "^5.3",
     "symfony/dependency-injection": "^5.3",
     "symfony/event-dispatcher": "^5.3",
@@ -18,10 +18,9 @@
   },
   "require-dev": {
     "phpunit/phpunit": "^9.0",
-    "ezsystems/ezplatform-code-style": "^2.0",
-    "friendsofphp/php-cs-fixer": "^3.0",
-    "phpstan/phpstan": "^0.12.75",
-    "phpstan/phpstan-phpunit": "^0.12.17"
+    "ibexa/code-style": "^1.0",
+    "phpstan/phpstan": "^1.4",
+    "phpstan/phpstan-phpunit": "^1.0"
   },
   "autoload": {
     "psr-4": {
@@ -51,7 +50,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-main": "1.0.x-dev"
+      "dev-main": "4.0.x-dev"
     }
   }
 }
