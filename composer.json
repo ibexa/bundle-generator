@@ -7,9 +7,9 @@
     "ibexa-dxp"
   ],
   "require": {
-    "php": "^7.4",
-    "symfony/console": "^5.3",
-    "symfony/filesystem": "^5.3"
+    "php": "^7.4 || ^8.0",
+    "symfony/console": "^5.4",
+    "symfony/filesystem": "^5.4"
   },
   "require-dev": {
     "composer/composer": "^2.1",
