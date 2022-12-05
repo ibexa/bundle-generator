@@ -1,27 +1,7 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method Ibexa\\\\BundleGenerator\\\\Composer\\\\ScriptHandler\\:\\:askForBundleName\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: src/lib/Composer/ScriptHandler.php
-
-		-
-			message: "#^Method Ibexa\\\\BundleGenerator\\\\Composer\\\\ScriptHandler\\:\\:askForPackageName\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: src/lib/Composer/ScriptHandler.php
-
-		-
 			message: "#^Method Ibexa\\\\BundleGenerator\\\\Composer\\\\ScriptHandler\\:\\:askForSkeletonName\\(\\) should return string but returns array\\<string\\>\\|bool\\|int\\|string\\.$#"
-			count: 1
-			path: src/lib/Composer/ScriptHandler.php
-
-		-
-			message: "#^Method Ibexa\\\\BundleGenerator\\\\Composer\\\\ScriptHandler\\:\\:askForVendorName\\(\\) should return string but returns string\\|null\\.$#"
-			count: 1
-			path: src/lib/Composer/ScriptHandler.php
-
-		-
-			message: "#^Method Ibexa\\\\BundleGenerator\\\\Composer\\\\ScriptHandler\\:\\:askForVendorNamespace\\(\\) should return string but returns string\\|null\\.$#"
 			count: 1
 			path: src/lib/Composer/ScriptHandler.php
 
