@@ -78,7 +78,7 @@ final class ScriptHandler
             return reset($skeletons);
         }
 
-        return $io->select(
+        return (string) $io->select(
             'Skeleton',
             array_combine($skeletons, $skeletons),
             BundleGenerator::DEFAULT_SKELETON_NAME
