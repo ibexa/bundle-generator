@@ -1,48 +1,72 @@
 name: Backend build
 
 on:
-  push:
-    branches:
-      - main
-      - '[0-9]+.[0-9]+'
-  pull_request: ~
+    push:
+        branches:
+            - main
+            - '[0-9]+.[0-9]+'
+    pull_request: ~
 
 jobs:
-  tests:
-    name: Tests
-    runs-on: "ubuntu-20.04"
-    timeout-minutes: 10
+    cs-fix:
+        name: Run code style check
+        runs-on: "ubuntu-22.04"
+        strategy:
+            matrix:
+                php:
+                    - '8.1'
+        steps:
+            -   uses: actions/checkout@v3
 
-    strategy:
-      fail-fast: false
-      matrix:
-        php:
-          - '7.4'
+            -   name: Setup PHP Action
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: ${{ matrix.php }}
+                    coverage: none
+                    extensions: 'pdo_sqlite, gd'
+                    tools: cs2pr
 
-    steps:
-      - uses: actions/checkout@v2
+            -   uses: ramsey/composer-install@v2
+                with:
+                    dependency-versions: "highest"
 
-      - name: Setup PHP Action
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php }}
-          coverage: none
-          extensions: pdo_sqlite, gd
-          tools: cs2pr
+            -   name: Run code style check
+                run: composer run-script check-cs -- --format=checkstyle | cs2pr
 
-      - uses: "ramsey/composer-install@v1"
-        with:
-          dependency-versions: "highest"
-          composer-options: "--prefer-dist --no-progress --no-suggest"
+    tests:
+        name: Tests
+        runs-on: "ubuntu-22.04"
+        timeout-minutes: 10
 
-      - name: Setup problem matchers for PHPUnit
-        run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+        strategy:
+            fail-fast: false
+            matrix:
+                php:
+                    - '7.4'
+                    - '8.1'
+                    - '8.2'
 
-      - name: Run PHPStan analysis
-        run: composer run-script phpstan
+        steps:
+            -   uses: actions/checkout@v2
 
-      - name: Run code style check
-        run: composer run-script check-cs -- --format=checkstyle | cs2pr
+            -   name: Setup PHP Action
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: ${{ matrix.php }}
+                    coverage: none
+                    extensions: pdo_sqlite, gd
+                    tools: cs2pr
 
-      - name: Run test suite
-        run: composer run-script --timeout=600 test
+            -   uses: "ramsey/composer-install@v1"
+                with:
+                    dependency-versions: "highest"
+                    composer-options: "--prefer-dist --no-progress --no-suggest"
+
+            -   name: Setup problem matchers for PHPUnit
+                run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+            -   name: Run PHPStan analysis
+                run: composer run-script phpstan
+
+            -   name: Run test suite
+                run: composer run-script --timeout=600 test
