@@ -33,11 +33,33 @@ final class __VENDOR_NAMESPACE____BUNDLE_NAME__Extension extends Extension imple
 
     public function prepend(ContainerBuilder $container): void
     {
+        $this->prependDefaultConfiguration($container);
+        $this->prependJMSTranslation($container);
+    }
+
+    private function prependDefaultConfiguration(ContainerBuilder $container): void
+    {
         $configFile = __DIR__ . '/../Resources/config/prepend.yaml';
 
         $container->addResource(new FileResource($configFile));
         foreach (Yaml::parseFile($configFile, Yaml::PARSE_CONSTANT) as $name => $config) {
             $container->prependExtensionConfig($name, $config);
         }
+    }
+
+    private function prependJMSTranslation(ContainerBuilder $container): void
+    {
+        $container->prependExtensionConfig('jms_translation', [
+            'configs' => [
+                '__VENDOR_NAME_____PACKAGE_NAME__' => [
+                    'dirs' => [
+                        __DIR__ . '/../../',
+                    ],
+                    'excluded_dirs' => ['Behat'],
+                    'output_dir' => __DIR__ . '/../Resources/translations/',
+                    'output_format' => 'xliff',
+                ],
+            ],
+        ]);
     }
 }
