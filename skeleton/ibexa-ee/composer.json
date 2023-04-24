@@ -10,7 +10,7 @@
   ],
   "require": {
     "php": "^7.4 || ^8.0",
-    "ibexa/core": "^4.4@dev",
+    "ibexa/core": "^4.5.x-dev",
     "symfony/config": "^5.4",
     "symfony/dependency-injection": "^5.4",
     "symfony/event-dispatcher": "^5.4",
