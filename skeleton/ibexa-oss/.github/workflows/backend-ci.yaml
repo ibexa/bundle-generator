@@ -33,6 +33,14 @@ jobs:
             -   name: Run code style check
                 run: composer run-script check-cs -- --format=checkstyle | cs2pr
 
+    deptrac:
+        name: Deptrac
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v3
+            -   name: Deptrac
+                uses: smoench/deptrac-action@master
+
     tests:
         name: Tests
         runs-on: "ubuntu-22.04"
