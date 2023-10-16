@@ -1,6 +1,6 @@
 {
   "name": "ibexa/bundle-generator",
-  "license": "proprietary",
+  "license": "(GPL-2.0-only or proprietary)",
   "description": "Symfony Bundle generator for Ibexa DXP based projects",
   "type": "project",
   "keywords": [
