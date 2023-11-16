@@ -36,7 +36,7 @@ php bin/ibexa-bundle-generator video-editor --skeleton-name=extension
 * vendor namespace e.g. `Ibexa`
 * skeleton name e.g. `ibexa-ee`
 
-This creates a bundle files structure in the  `./target`` directory.
+This creates a bundle files structure in the  `./target` directory.
 
 Or you can use a command with all available options:
 
