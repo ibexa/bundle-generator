@@ -25,7 +25,7 @@ composer install
 4\. Run bundle generator:
 
 ```bash
-php bin/ibexa-bundle-generator video-editor--skeleton-name=extension
+php bin/ibexa-bundle-generator video-editor --skeleton-name=extension
 ```
 
 5\.Adjust the bundle to your needs providing the following parameters:
