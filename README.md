@@ -4,13 +4,31 @@ Symfony Bundle generator for Ibexa DXP based projects.
 
 ## Using generator as standalone application
 
-Bundle generator could be used in standalone application mode. Minimal usage is:
+Bundle generator can work in standalone application mode.
 
+1\. Clone the repository.
+```bash
+git clone git@github.com:ibexa/bundle-generator.git
 ```
-$ php ./ibexa-bundle-generator video-editor  
+2\. Change to bundle generator directory.
+
+```bash
+cd bundle-generator
 ```
 
-You will be asked about the following parameters:
+3\. Install dependencies:
+
+```bash
+composer install
+```
+
+4\. Run bundle generator:
+
+```bash
+php bin/ibexa-bundle-generator video-editor--skeleton-name=extension
+```
+
+5\.Adjust the bundle to your needs providing the following parameters:
 
 * package name e.g `video-editor`
 * vendor name e.g. `ibexa`
@@ -18,9 +36,9 @@ You will be asked about the following parameters:
 * vendor namespace e.g. `Ibexa`
 * skeleton name e.g. `ibexa-ee`
 
-Package structure will be generated into `./target` directory.
+This creates a bundle files structure in the  `./target`` directory.
 
-Usage with all available options:
+Or you can use a command with all available options:
 
 ```
 $ php ./ibexa-bundle-generator video-editor  video-editor-dir  --vendor-name=ibexa --vendor-namespace=Ibexa --bundle-name=VideoEditor  --skeleton-name=ibexa-ee
@@ -42,11 +60,11 @@ Options:
       --bundle-name=BUNDLE-NAME            e.g. IbexaPageBuilder
       --skeleton-name=SKELETON-NAME        Skeleton name
   -h, --help                               Display help for the given command. When no command is given display help for the generate-bundle command
-  -q, --quiet                              Do not output any message
+  -q, --quiet                              Don't output any message
   -V, --version                            Display this application version
       --ansi                               Force ANSI output
       --no-ansi                            Disable ANSI output
-  -n, --no-interaction                     Do not ask any interactive question
+  -n, --no-interaction                     Don't ask any interactive question
   -v|vv|vvv, --verbose                     Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
 ```
 
