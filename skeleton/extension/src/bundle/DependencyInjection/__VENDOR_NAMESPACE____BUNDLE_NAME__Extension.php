@@ -38,7 +38,8 @@ final class __VENDOR_NAMESPACE____BUNDLE_NAME__Extension extends Extension imple
         $configFile = __DIR__ . '/../Resources/config/prepend.yaml';
 
         $container->addResource(new FileResource($configFile));
-        foreach (Yaml::parseFile($configFile, Yaml::PARSE_CONSTANT) as $name => $config) {
+        $configs = Yaml::parseFile($configFile, Yaml::PARSE_CONSTANT) ?? [];
+        foreach ($configs as $name => $config) {
             $container->prependExtensionConfig($name, $config);
         }
     }
