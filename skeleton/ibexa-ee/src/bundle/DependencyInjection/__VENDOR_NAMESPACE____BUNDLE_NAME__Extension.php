@@ -53,7 +53,7 @@ final class __VENDOR_NAMESPACE____BUNDLE_NAME__Extension extends Extension imple
     {
         $container->prependExtensionConfig('jms_translation', [
             'configs' => [
-                '__VENDOR_NAME_____PACKAGE_NAME__' => [
+                '__CONFIG_ROOT__' => [
                     'dirs' => [
                         __DIR__ . '/../../',
                     ],

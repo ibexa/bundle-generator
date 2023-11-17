@@ -32,6 +32,7 @@ final class BundleGenerator
             '__VENDOR_NAME__' => $config->getVendorName(),
             '__VENDOR_NAMESPACE__' => $config->getVendorNamespace(),
             '__BUNDLE_NAME__' => $config->getBundleName(),
+            '__CONFIG_ROOT__' => str_replace('-', '_', $config->getVendorName() . '_' . $config->getPackageName()),
         ];
 
         $iterator = $this->createSkeletonIterator($config->getTargetDir());
