@@ -29,6 +29,12 @@ final class __VENDOR_NAMESPACE____BUNDLE_NAME__Extension extends Extension imple
         );
 
         $loader->load('services.yaml');
+
+        if ($this->shouldLoadTestServices($container)) {
+            $loader->load('test/pages.yaml');
+            $loader->load('test/components.yaml');
+            $loader->load('test/services.yaml');
+        }
     }
 
     public function prepend(ContainerBuilder $container): void
@@ -63,5 +69,11 @@ final class __VENDOR_NAMESPACE____BUNDLE_NAME__Extension extends Extension imple
                 ],
             ],
         ]);
+    }
+
+    private function shouldLoadTestServices(ContainerBuilder $container): bool
+    {
+        return $container->hasParameter('ibexa.behat.browser.enabled')
+            && true === $container->getParameter('ibexa.behat.browser.enabled');
     }
 }

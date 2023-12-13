@@ -1,0 +1,7 @@
+browser:
+  suites:
+    __PACKAGE_NAME__:
+      paths:
+        - '%paths.base%/features/browser'
+      contexts:
+        - Ibexa\Behat\API\Context\TestContext
