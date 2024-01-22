@@ -33,7 +33,7 @@ final class __VENDOR_NAMESPACE____BUNDLE_NAME__Extension extends Extension imple
         if ($this->shouldLoadTestServices($container)) {
             $loader->load('test/pages.yaml');
             $loader->load('test/components.yaml');
-            $loader->load('test/services.yaml');
+            $loader->load('test/contexts.yaml');
         }
     }
 
