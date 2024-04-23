@@ -13,11 +13,10 @@
     },
     "require-dev": {
         "composer/composer": "^2.1",
-        "phpunit/phpunit": "^9.0",
-        "phpstan/phpstan": "^0.12.75",
+        "friendsofphp/php-cs-fixer": "^3.0",
         "ibexa/code-style": "^1.2",
-        "ezsystems/ezplatform-code-style": "^2.0",
-        "friendsofphp/php-cs-fixer": "^3.0"
+        "phpstan/phpstan": "^0.12.75",
+        "phpunit/phpunit": "^9.0"
     },
     "bin": [
         "bin/ibexa-bundle-generator"
@@ -52,5 +51,8 @@
         "branch-alias": {
             "dev-main": "1.0.x-dev"
         }
+    },
+    "config": {
+        "sort-packages": true
     }
 }
