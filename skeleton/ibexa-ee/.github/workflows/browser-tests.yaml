@@ -13,7 +13,7 @@ jobs:
         uses: ibexa/gh-workflows/.github/workflows/browser-tests.yml@main
         with:
             project-edition: 'commerce'
-            test-suite:  '--profile=browser --suite=__PACKAGE_NAME__ --config=vendor/__VENDOR_NAME__/__PACKAGE_NAME__/behat.yaml'
+            test-suite:  '--profile=browser --suite=__PACKAGE_NAME__ --config=vendor/__VENDOR_NAME__/__PACKAGE_NAME__/behat_suites.yaml'
         secrets:
             SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
             SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
