@@ -13,6 +13,6 @@ jobs:
         uses: ibexa/gh-workflows/.github/workflows/browser-tests.yml@main
         with:
             project-edition: 'oss'
-            test-suite:  '--profile=browser --suite=__PACKAGE_NAME__ --config=vendor/__VENDOR_NAME__/__PACKAGE_NAME__/behat.yaml'
+            test-suite:  '--profile=browser --suite=__PACKAGE_NAME__ --config=vendor/__VENDOR_NAME__/__PACKAGE_NAME__/behat_suites.yaml'
         secrets:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
