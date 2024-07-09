@@ -5,5 +5,4 @@ browser:
         - '%paths.base%/features/browser'
       contexts:
         - Ibexa\Behat\API\Context\TestContext
-        - Ibexa\AdminUi\Behat\BrowserContext\NavigationContext
-        - Ibexa\AdminUi\Behat\BrowserContext\AuthenticationContext
+        - Ibexa\Behat\Browser\Context\AuthenticationContext
