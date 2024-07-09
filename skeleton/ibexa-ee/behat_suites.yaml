@@ -1,3 +1,6 @@
+imports:
+  - ../../ibexa/behat/behat_ibexa_headless.yaml
+
 browser:
   suites:
     __PACKAGE_NAME__:
