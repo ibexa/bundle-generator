@@ -17,10 +17,10 @@ jobs:
       fail-fast: false
       matrix:
         php:
-          - '7.4'
+          - '8.3'
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Setup PHP Action
         uses: shivammathur/setup-php@v2
@@ -39,7 +39,7 @@ jobs:
           SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
           TRAVIS_GITHUB_TOKEN: ${{ secrets.TRAVIS_GITHUB_TOKEN }}
 
-      - uses: "ramsey/composer-install@v1"
+      - uses: "ramsey/composer-install@v3"
         with:
           dependency-versions: "highest"
           composer-options: "--prefer-dist --no-progress --no-suggest"

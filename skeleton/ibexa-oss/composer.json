@@ -6,8 +6,8 @@
         "ibexa-dxp"
     ],
     "require": {
-        "php": "^7.4 || ^8.0",
-        "ibexa/core": "~4.6.x-dev",
+        "php": "^>=8.3",
+        "ibexa/core": "~5.0.x-dev",
         "symfony/config": "^5.4",
         "symfony/dependency-injection": "^5.4",
         "symfony/event-dispatcher": "^5.4",
@@ -17,7 +17,7 @@
         "symfony/yaml": "^5.4"
     },
     "require-dev": {
-        "ibexa/behat": "~4.6.x-dev",
+        "ibexa/behat": "~5.0.x-dev",
         "ibexa/code-style": "~2.0.0",
         "phpstan/phpstan": "^1.10",
         "phpstan/phpstan-phpunit": "^1.3",
@@ -55,7 +55,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-main": "4.6.x-dev"
+            "dev-main": "5.0.x-dev"
         }
     },
     "config": {
