@@ -25,6 +25,7 @@
     "require-dev": {
         "ibexa/behat": "~4.6.x-dev",
         "ibexa/code-style": "~2.0.0",
+        "ibexa/doctrine-schema": "~4.6.x-dev",
         "ibexa/phpstan": "~4.6.x-dev",
         "phpstan/phpstan": "^1.10",
         "phpstan/phpstan-phpunit": "^1.3",
