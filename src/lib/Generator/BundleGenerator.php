@@ -35,8 +35,6 @@ final class BundleGenerator
             '__CONFIG_ROOT__' => str_replace('-', '_', $config->getVendorName() . '_' . $config->getPackageName()),
         ];
 
-        var_dump($replacements);
-
         $iterator = $this->createSkeletonIterator($config->getTargetDir());
 
         foreach ($iterator as $file) {
