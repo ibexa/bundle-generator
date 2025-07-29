@@ -35,8 +35,4 @@ final class TestKernel extends IbexaTestKernel
     {
         yield from parent::getExposedServicesByClass();
     }
-
-    protected static function getExposedServicesById(): iterable
-    {
-    }
 }
