@@ -7,21 +7,27 @@
     ],
     "require": {
         "php": ">=8.3",
-        "ibexa/core": "^~5.0.x-dev",
-        "symfony/config": "^5.4",
-        "symfony/dependency-injection": "^5.4",
-        "symfony/event-dispatcher": "^5.4",
-        "symfony/http-foundation": "^5.4",
-        "symfony/http-kernel": "^5.4",
-        "symfony/yaml": "^5.4"
+        "ibexa/core": "~5.0.x-dev",
+        "symfony/config": "^7.3",
+        "symfony/dependency-injection": "^7.3",
+        "symfony/event-dispatcher": "^7.3",
+        "symfony/http-foundation": "^7.3",
+        "symfony/http-kernel": "^7.3",
+        "symfony/yaml": "^7.3"
     },
     "require-dev": {
+        "dama/doctrine-test-bundle": "^8.2",
         "ibexa/code-style": "~2.0.0",
+        "ibexa/phpstan": "~5.0.x-dev",
+        "ibexa/rector": "~5.0.x-dev",
+        "ibexa/test-core": "~5.0.x-dev",
         "phpstan/phpstan": "^2.0",
         "phpstan/phpstan-phpunit": "^2.0",
+        "phpstan/phpstan-strict-rules": "^2",
         "phpstan/phpstan-symfony": "^2.0",
-        "phpunit/phpunit": "^9.0",
-        "qossmic/deptrac": "^2.0"
+        "phpunit/phpunit": "^9.5",
+        "qossmic/deptrac-shim": "^0.24.0 || ^1.0.2",
+        "symfony/phpunit-bridge": "^7.3"
     },
     "autoload": {
         "psr-4": {
