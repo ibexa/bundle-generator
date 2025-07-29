@@ -9,3 +9,5 @@ parameters:
     paths:
         - src
         - tests
+    checkMissingCallableSignature: true
+    treatPhpDocTypesAsCertain: false
