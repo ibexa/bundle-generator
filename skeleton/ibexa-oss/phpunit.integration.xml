@@ -9,7 +9,7 @@
         <env name="KERNEL_CLASS" value="Ibexa\Tests\Integration\__BUNDLE_NAME__\TestKernel" />
         <env name="SEARCH_ENGINE" value="legacy" />
         <env name="DATABASE_URL" value="sqlite://i@i/var/test.db" />
-        <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[self]=999999&amp;max[direct]=999999&amp;verbose=0"/>
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[self]=0&amp;max[direct]=0&amp;verbose=0"/>
         <ini name="intl.default_locale" value="en_US" />
     </php>
     <testsuites>
