@@ -18,9 +18,6 @@ use Symfony\Component\Yaml\Yaml;
 
 final class __VENDOR_NAMESPACE____BUNDLE_NAME__Extension extends Extension implements PrependExtensionInterface
 {
-    /**
-     * @param array<string, mixed> $configs
-     */
     public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new YamlFileLoader(
