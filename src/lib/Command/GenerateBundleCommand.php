@@ -65,8 +65,10 @@ final class GenerateBundleCommand extends Command
         );
     }
 
-    protected function interact(InputInterface $input, OutputInterface $output): void
-    {
+    protected function interact(
+        InputInterface $input,
+        OutputInterface $output
+    ): void {
         $helper = $this->getHelper('question');
 
         if (!$input->getArgument('package-name')) {
@@ -118,8 +120,10 @@ final class GenerateBundleCommand extends Command
         }
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $config = new BundleGeneratorConfiguration();
         $config->setTargetDir($input->getArgument('target-dir'));
         $config->setPackageName($input->getArgument('package-name'));

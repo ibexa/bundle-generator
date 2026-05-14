@@ -50,7 +50,7 @@ final class BundleGenerator
     }
 
     /**
-     * @return iterator<SplFileInfo>
+     * @return Iterator<SplFileInfo>
      */
     private function createSkeletonIterator(string $targetDir): Iterator
     {
@@ -123,7 +123,7 @@ final class BundleGenerator
         $skeletons = [];
 
         $iterator = new FilesystemIterator(self::SKELETON_DIRECTORY);
-        /** @var \SplFileInfo $fileInfo */
+        /** @var SplFileInfo $fileInfo */
         foreach ($iterator as $fileInfo) {
             if (!$fileInfo->isDir()) {
                 continue;

@@ -51,8 +51,10 @@ final class ScriptHandler
         );
     }
 
-    private static function askForVendorNamespace(IOInterface $io, BundleGeneratorConfiguration $config): string
-    {
+    private static function askForVendorNamespace(
+        IOInterface $io,
+        BundleGeneratorConfiguration $config
+    ): string {
         $defaultVendorNamespace = BundleGenerator::getDefaultVendorNamespace($config->getVendorName());
 
         return $io->ask(
@@ -61,8 +63,10 @@ final class ScriptHandler
         );
     }
 
-    private static function askForBundleName(IOInterface $io, BundleGeneratorConfiguration $config): string
-    {
+    private static function askForBundleName(
+        IOInterface $io,
+        BundleGeneratorConfiguration $config
+    ): string {
         $defaultBundleName = BundleGenerator::getDefaultBundleName($config->getPackageName());
 
         return $io->ask(
