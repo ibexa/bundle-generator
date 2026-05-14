@@ -13,8 +13,7 @@
     },
     "require-dev": {
         "composer/composer": "^2.1",
-        "friendsofphp/php-cs-fixer": "^3.0",
-        "ibexa/code-style": "~2.1.0",
+        "ibexa/code-style": "~2.3.0",
         "phpstan/phpstan": "^0.12.75",
         "phpunit/phpunit": "^9.0"
     },
