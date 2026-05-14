@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Ibexa\BundleGenerator\Generator;
 
 use FilesystemIterator;
+use InvalidArgumentException;
 use Iterator;
 use RecursiveCallbackFilterIterator;
 use RecursiveDirectoryIterator;
@@ -18,14 +19,18 @@ use Symfony\Component\Filesystem\Filesystem;
 
 final class BundleGenerator
 {
-    public const DEFAULT_SKELETON_NAME = 'ibexa-ee';
+    public const string DEFAULT_SKELETON_NAME = 'ibexa-ee';
 
-    private const SKELETON_DIRECTORY = __DIR__ . '/../../../skeleton/';
+    private const string SKELETON_DIRECTORY = __DIR__ . '/../../../skeleton/';
 
     public function generate(BundleGeneratorConfiguration $config): void
     {
         $fs = new Filesystem();
-        $fs->mirror($this->getSkeletonDirectory($config), $config->getTargetDir());
+        $targetDir = $config->getTargetDir();
+        if (null === $targetDir) {
+            throw new InvalidArgumentException('Target directory cannot be null');
+        }
+        $fs->mirror($this->getSkeletonDirectory($config), $targetDir);
 
         $replacements = [
             '__PACKAGE_NAME__' => $config->getPackageName(),
@@ -35,11 +40,11 @@ final class BundleGenerator
             '__CONFIG_ROOT__' => str_replace('-', '_', $config->getVendorName() . '_' . $config->getPackageName()),
         ];
 
-        $iterator = $this->createSkeletonIterator($config->getTargetDir());
+        $iterator = $this->createSkeletonIterator($targetDir);
 
         foreach ($iterator as $file) {
             if (!$file->isDir()) {
-                $content = strtr(file_get_contents($file->getPathname()), $replacements);
+                $content = strtr($this->getFileContents($file), $replacements);
                 $fs->dumpFile($file->getPathname(), $content);
             }
         }
@@ -83,7 +88,7 @@ final class BundleGenerator
 
     public static function getDefaultPackageName(): string
     {
-        return basename(realpath('.'));
+        return basename(self::getCurrentDirectory());
     }
 
     public static function getDefaultVendorName(): ?string
@@ -133,5 +138,28 @@ final class BundleGenerator
         }
 
         return $skeletons;
+    }
+
+    private static function getCurrentDirectory(): string
+    {
+        $realPath = realpath('.');
+        if (false === $realPath) {
+            throw new InvalidArgumentException('Unable to get current directory real path');
+        }
+
+        return $realPath;
+    }
+
+    private function getFileContents(SplFileInfo $file): string
+    {
+        $pathname = $file->getPathname();
+
+        $contents = file_get_contents($pathname);
+
+        if ($contents === false) {
+            throw new InvalidArgumentException("Unable to get contents of the file '$pathname'");
+        }
+
+        return $contents;
     }
 }

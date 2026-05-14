@@ -11,6 +11,8 @@ namespace Ibexa\BundleGenerator\Command;
 use Ibexa\BundleGenerator\Generator\BundleGenerator;
 use Ibexa\BundleGenerator\Generator\BundleGeneratorConfiguration;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Exception\InvalidArgumentException;
+use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -69,9 +71,11 @@ final class GenerateBundleCommand extends Command
         InputInterface $input,
         OutputInterface $output
     ): void {
+        /** @var QuestionHelper $helper */
         $helper = $this->getHelper('question');
 
-        if (!$input->getArgument('package-name')) {
+        $packageName = $this->getNullableStringArgument($input, 'package-name');
+        if (empty($packageName)) {
             $defaultPackageName = BundleGenerator::getDefaultPackageName();
 
             $question = new Question(
@@ -79,10 +83,14 @@ final class GenerateBundleCommand extends Command
                 $defaultPackageName
             );
 
-            $input->setArgument('package-name', $helper->ask($input, $output, $question));
+            $input->setArgument('package-name', $this->getNullableStringAnswer(
+                $helper->ask($input, $output, $question),
+                'package-name'
+            ));
         }
 
-        if (!$input->getOption('vendor-name')) {
+        $vendorName = $this->getNullableStringOption($input, 'vendor-name');
+        if (empty($vendorName)) {
             $defaultVendorName = BundleGenerator::getDefaultVendorName();
 
             $question = new Question(
@@ -90,33 +98,39 @@ final class GenerateBundleCommand extends Command
                 $defaultVendorName
             );
 
-            $input->setOption('vendor-name', $helper->ask($input, $output, $question));
+            $vendorName = $this->getNullableStringAnswer(
+                $helper->ask($input, $output, $question),
+                'vendor-name'
+            );
+            $input->setOption('vendor-name', $vendorName);
         }
 
-        if (!$input->getOption('vendor-namespace')) {
-            $defaultVendorNamespace = BundleGenerator::getDefaultVendorNamespace(
-                $input->getOption('vendor-name')
-            );
+        if ($this->getNullableStringOption($input, 'vendor-namespace') === null) {
+            $defaultVendorNamespace = BundleGenerator::getDefaultVendorNamespace($vendorName);
 
             $question = new Question(
                 'Bundle vendor namespace e.g Ibexa [' . ($defaultVendorNamespace ?? 'n/a') . ']: ',
                 $defaultVendorNamespace
             );
 
-            $input->setOption('vendor-namespace', $helper->ask($input, $output, $question));
+            $input->setOption('vendor-namespace', $this->getNullableStringAnswer(
+                $helper->ask($input, $output, $question),
+                'vendor-namespace'
+            ));
         }
 
-        if (!$input->getOption('bundle-name')) {
-            $defaultBundleName = BundleGenerator::getDefaultBundleName(
-                $input->getArgument('package-name')
-            );
+        if ($this->getNullableStringOption($input, 'bundle-name') === null) {
+            $defaultBundleName = BundleGenerator::getDefaultBundleName($packageName);
 
             $question = new Question(
                 "Bundle name without 'Bundle' suffix e.g IbexaPageBuilder [" . ($defaultBundleName ?? 'n/a') . ']: ',
                 $defaultBundleName
             );
 
-            $input->setOption('bundle-name', $helper->ask($input, $output, $question));
+            $input->setOption('bundle-name', $this->getNullableStringAnswer(
+                $helper->ask($input, $output, $question),
+                'bundle-name'
+            ));
         }
     }
 
@@ -125,16 +139,48 @@ final class GenerateBundleCommand extends Command
         OutputInterface $output
     ): int {
         $config = new BundleGeneratorConfiguration();
-        $config->setTargetDir($input->getArgument('target-dir'));
-        $config->setPackageName($input->getArgument('package-name'));
-        $config->setSkeletonName($input->getOption('skeleton-name'));
-        $config->setVendorName($input->getOption('vendor-name'));
-        $config->setVendorNamespace($input->getOption('vendor-namespace'));
-        $config->setBundleName($input->getOption('bundle-name'));
+        $config->setTargetDir($this->getNullableStringArgument($input, 'target-dir'));
+        $config->setPackageName($this->getNullableStringArgument($input, 'package-name'));
+        $config->setSkeletonName($this->getNullableStringOption($input, 'skeleton-name'));
+        $config->setVendorName($this->getNullableStringOption($input, 'vendor-name'));
+        $config->setVendorNamespace($this->getNullableStringOption($input, 'vendor-namespace'));
+        $config->setBundleName($this->getNullableStringOption($input, 'bundle-name'));
 
         $generator = new BundleGenerator();
         $generator->generate($config);
 
         return self::SUCCESS;
+    }
+
+    private function getNullableStringArgument(
+        InputInterface $input,
+        string $name
+    ): ?string {
+        return $this->getNullableStringValue($input->getArgument($name), sprintf('Argument "%s"', $name));
+    }
+
+    private function getNullableStringOption(
+        InputInterface $input,
+        string $name
+    ): ?string {
+        return $this->getNullableStringValue($input->getOption($name), sprintf('Option "%s"', $name));
+    }
+
+    private function getNullableStringAnswer(
+        mixed $value,
+        string $name
+    ): ?string {
+        return $this->getNullableStringValue($value, sprintf('Question "%s"', $name));
+    }
+
+    private function getNullableStringValue(
+        mixed $value,
+        string $source
+    ): ?string {
+        if (is_string($value) || $value === null) {
+            return $value;
+        }
+
+        throw new InvalidArgumentException(sprintf('%s must be a string or null.', $source));
     }
 }
