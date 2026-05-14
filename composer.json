@@ -14,8 +14,11 @@
     "require-dev": {
         "composer/composer": "^2.1",
         "ibexa/code-style": "~2.3.0",
-        "phpstan/phpstan": "^0.12.75",
-        "phpunit/phpunit": "^9.0"
+        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpstan/phpstan-strict-rules": "^2",
+        "phpstan/phpstan-symfony": "^2.0",
+        "phpunit/phpunit": "^12"
     },
     "bin": [
         "bin/ibexa-bundle-generator"
