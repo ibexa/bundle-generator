@@ -10,23 +10,17 @@ namespace Ibexa\BundleGenerator\Generator;
 
 final class BundleGeneratorConfiguration
 {
-    /** @var string|null */
-    private $skeletonName;
+    private ?string $skeletonName;
 
-    /** @var string|null */
-    private $packageName;
+    private ?string $packageName;
 
-    /** @var string|null */
-    private $vendorName;
+    private ?string $vendorName;
 
-    /** @var string|null */
-    private $vendorNamespace;
+    private ?string $vendorNamespace;
 
-    /** @var string|null */
-    private $bundleName;
+    private ?string $bundleName;
 
-    /** @var string|null */
-    private $targetDir;
+    private ?string $targetDir;
 
     public function getSkeletonName(): ?string
     {

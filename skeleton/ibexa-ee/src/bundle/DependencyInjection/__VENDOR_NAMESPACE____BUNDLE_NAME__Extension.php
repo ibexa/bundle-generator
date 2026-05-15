@@ -18,8 +18,10 @@ use Symfony\Component\Yaml\Yaml;
 
 final class __VENDOR_NAMESPACE____BUNDLE_NAME__Extension extends Extension implements PrependExtensionInterface
 {
-    public function load(array $configs, ContainerBuilder $container): void
-    {
+    public function load(
+        array $configs,
+        ContainerBuilder $container
+    ): void {
         $loader = new YamlFileLoader(
             $container,
             new FileLocator(__DIR__ . '/../Resources/config')

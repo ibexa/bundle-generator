@@ -6,9 +6,11 @@
  */
 declare(strict_types=1);
 
+use Ibexa\Contracts\Core\Search\VersatileHandler;
 use Ibexa\Contracts\Core\Test\Persistence\Fixture\FixtureImporter;
 use Ibexa\Tests\Core\Repository\LegacySchemaImporter;
 use Ibexa\Tests\Integration\__BUNDLE_NAME__\TestKernel;
+use Psr\Container\ContainerInterface;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArrayInput;
 
@@ -44,7 +46,7 @@ $application->run(new ArrayInput([
     '--quiet' => true,
 ]));
 
-/** @var \Psr\Container\ContainerInterface $testContainer */
+/** @var ContainerInterface $testContainer */
 $testContainer = $kernel->getContainer()->get('test.service_container');
 
 $schemaImporter = $testContainer->get(LegacySchemaImporter::class);
@@ -57,7 +59,7 @@ foreach ($kernel->getFixtures() as $fixture) {
     $fixtureImporter->import($fixture);
 }
 
-/** @var \Ibexa\Contracts\Core\Search\VersatileHandler $handler */
+/** @var VersatileHandler $handler */
 $handler = $testContainer->get('ibexa.spi.search');
 $handler->purgeIndex();
 
