@@ -9,13 +9,13 @@ on:
 jobs:
     cs-fix:
         name: Run code style check
-        runs-on: "ubuntu-24.04"
+        runs-on: "ubuntu-26.04"
         strategy:
             matrix:
                 php:
                     - '8.3'
         steps:
-            -   uses: actions/checkout@v6
+            -   uses: actions/checkout@v7
 
             -   uses: ibexa/gh-workflows/actions/composer-install@main
                 with:
@@ -29,15 +29,15 @@ jobs:
 
     deptrac:
         name: Deptrac
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-26.04
         steps:
-            -   uses: actions/checkout@v6
+            -   uses: actions/checkout@v7
             -   name: Deptrac
                 uses: smoench/deptrac-action@master
 
     tests:
         name: Tests
-        runs-on: "ubuntu-24.04"
+        runs-on: "ubuntu-26.04"
         timeout-minutes: 10
 
         strategy:
@@ -48,7 +48,7 @@ jobs:
                     - '8.4'
 
         steps:
-            -   uses: actions/checkout@v6
+            -   uses: actions/checkout@v7
 
             -   uses: ibexa/gh-workflows/actions/composer-install@main
                 with:
@@ -83,7 +83,7 @@ jobs:
                     --health-timeout 5s
                     --health-retries 5
                     --tmpfs /var/lib/postgres
-        runs-on: "ubuntu-24.04"
+        runs-on: "ubuntu-26.04"
         timeout-minutes: 10
 
         strategy:
@@ -97,7 +97,7 @@ jobs:
                     - 'postgres:18'
 
         steps:
-            -   uses: actions/checkout@v6
+            -   uses: actions/checkout@v7
 
             -   uses: ibexa/gh-workflows/actions/composer-install@main
                 with:
@@ -133,7 +133,7 @@ jobs:
                     --health-timeout=5s
                     --health-retries=5
                     --tmpfs=/var/lib/mysql
-        runs-on: "ubuntu-24.04"
+        runs-on: "ubuntu-26.04"
         timeout-minutes: 60
 
         strategy:
@@ -147,7 +147,7 @@ jobs:
                     - 'mysql:8.4'
 
         steps:
-            -   uses: actions/checkout@v6
+            -   uses: actions/checkout@v7
 
             -   uses: ibexa/gh-workflows/actions/composer-install@main
                 with:
