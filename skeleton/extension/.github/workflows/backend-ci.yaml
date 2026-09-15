@@ -31,7 +31,10 @@ jobs:
                     dependency-versions: "highest"
 
             -   name: Run code style check
-                run: composer run-script check-cs -- --format=checkstyle | cs2pr
+                shell: bash
+                run: |
+                    set -euo pipefail
+                    composer run-script check-cs -- --format=checkstyle | cs2pr
 
     deptrac:
         name: Deptrac
